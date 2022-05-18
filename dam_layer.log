@@ -1,0 +1,681 @@
+Warning: no access to tty (Inappropriate ioctl for device).
+Thus no job control in this shell.
+set time = 1
+set timestamp
+setenv R dambreak_2d
+setenv S /p/work1/abozec/MOM6-examples/
+mkdir -p /p/work1/abozec/MOM6-examples/
+cd /p/home/abozec/MOM6-examples_202203/ocean_only/dambreak_2d/
+echo /p/home/abozec/MOM6-examples_202203/ocean_only/dambreak_2d
+/p/home/abozec/MOM6-examples_202203/ocean_only/dambreak_2d
+setenv DIR layerfile_f0_kv_drag2e-4
+mkdir -p /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4
+mkdir -p /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/INPUT
+mkdir -p /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/RESTART
+/bin/cp common/diag_table common/input.nml common/MOM_memory.h /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4
+/bin/cp layerfile/MOM_input_kv /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/MOM_input
+/bin/cp layerfile/MOM_override /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/MOM_override
+/bin/cp layerfile/MOM_memory.h /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/
+/bin/cp: cannot stat 'layerfile/MOM_memory.h': No such file or directory
+/bin/cp layerfile/mom6_vgrid.nc /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/INPUT/
+/bin/cp layerfile/depth_dambreak_2d_01.nc /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/INPUT/
+/bin/cp layerfile/intdepth_dambreak_2d.nc /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/INPUT/
+cd /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/
+echo /p/work1/abozec/MOM6-examples/dambreak_2d/layerfile_f0_kv_drag2e-4
+/p/work1/abozec/MOM6-examples/dambreak_2d/layerfile_f0_kv_drag2e-4
+cp /p/home/abozec/MOM6-examples_202203/build/intel/ocean_hyb_sym/repro/MOM6 /p/work1/abozec/MOM6-examples//dambreak_2d/layerfile_f0_kv_drag2e-4/
+unset echo
+
+As of CPE 21.04, PrgEnv module collections are deprecated.
+PrgEnv meta-modules are now available.
+Usage: module load PrgEnv-intel
+
+Currently Loaded Modulefiles:
+  1) cpe-intel                8) perftools-base/21.09.0
+  2) intel/2021.3.0           9) cray-mpich/8.1.4
+  3) craype/2.7.10           10) cray-libsci/21.08.1.2
+  4) craype-x86-rome         11) cray-pals/1.1.5
+  5) libfabric/1.11.0.4.91   12) bct-env/0.1
+  6) craype-network-ofi      13) mpscp/1.3a
+  7) cray-dsmml/0.2.1        14) python/3
+lfs setstripe /p/work1/abozec/MOM6-examples/ -S 1048576 -i -1 -c 8
+set echo
+setenv NOMP 0
+setenv NMPI 10
+if ( 0 == 0 ) then
+setenv NOMP 1
+endif
+setenv OMP_NUM_THREADS 1
+setenv LD_LIBRARY_PATH /opt/intel/oneapi_2021.1.0.2659/mkl/2021.1.1//lib/intel64/:/opt/cray/pe/libsci/21.08.1.2/INTEL/19.0/x86_64/lib:/opt/cray/pe/mpich/8.1.4/ofi/intel/19.0/lib:/opt/cray/pe/perftools/21.09.0/lib64:/opt/cray/pe/dsmml/0.2.1/dsmml/lib:/lib64:/p/app/Anaconda3/lib:/opt/cray/pe/papi/6.0.0.9/lib64:/opt/cray/libfabric/1.11.0.4.91/lib64:/opt/intel/oneapi_2021.3.0.3219/mkl/2021.3.0/lib/intel64:/opt/intel/oneapi_2021.3.0.3219/compiler/2021.3.0/linux/lib:/opt/intel/oneapi_2021.3.0.3219/compiler/2021.3.0/linux/lib/x64:/opt/intel/oneapi_2021.3.0.3219/compiler/2021.3.0/linux/lib/emu:/opt/intel/oneapi_2021.3.0.3219/compiler/2021.3.0/linux/lib/oclfpga/host/linux64/lib:/opt/intel/oneapi_2021.3.0.3219/compiler/2021.3.0/linux/lib/oclfpga/linux64/lib:/opt/intel/oneapi_2021.3.0.3219/compiler/2021.3.0/linux/compiler/lib/intel64_lin
+setenv MPICH_VERSION_DISPLAY 1
+setenv MPICH_ENV_DISPLAY 1
+setenv MPICH_ABORT_ON_ERROR 1
+setenv ATP_ENABLED 1
+setenv NO_STOP_MESSAGE 1
+setenv OMP_NUM_THREADS 1
+setenv CPU_NUMA 112-127:48-63:96-111:32-47:80-95:16-31:64-79:0-15
+mpiexec --mem-bind local --cpu-bind list:112-127:48-63:96-111:32-47:80-95:16-31:64-79:0-15 -n 10 ./MOM6
+PE 0: MPICH processor detected:
+PE 0:   AMD Rome (23:49:0) (family:model:stepping)
+MPI VERSION    : CRAY MPICH version 8.1.4.6 (ANL base 3.4a2)
+MPI BUILD INFO : Thu Mar 18 19:03 2021 (git hash 3e74f0c) (CH4)
+PE 0: MPICH environment settings =====================================
+PE 0:   MPICH_ENV_DISPLAY                              = 1
+PE 0:   MPICH_VERSION_DISPLAY                          = 1
+PE 0:   MPICH_ABORT_ON_ERROR                           = 1
+PE 0:   MPICH_CPUMASK_DISPLAY                          = 0
+PE 0:   MPICH_STATS_DISPLAY                            = 0
+PE 0:   MPICH_RANK_REORDER_METHOD                      = 1
+PE 0:   MPICH_RANK_REORDER_DISPLAY                     = 0
+PE 0:   MPICH_MEMCPY_MEM_CHECK                         = 0
+PE 0:   MPICH_USE_SYSTEM_MEMCPY                        = 0
+PE 0:   MPICH_OPTIMIZED_MEMCPY                         = 1
+PE 0:   MPICH_ALLOC_MEM_PG_SZ                          = 4096
+PE 0:   MPICH_ALLOC_MEM_POLICY                         = PREFERRED
+PE 0:   MPICH_ALLOC_MEM_AFFINITY                       = SYS_DEFAULT
+PE 0:   MPICH_MALLOC_FALLBACK                          = 0
+PE 0:   MPICH_MEM_DEBUG_FNAME                          = 
+PE 0:   MPICH_INTERNAL_MEM_AFFINITY                    = SYS_DEFAULT
+PE 0:   MPICH_NO_BUFFER_ALIAS_CHECK                    = 0
+PE 0:   MPICH_COLL_SYNC                                = 0
+PE 0:   MPICH_SINGLETON_ENABLED                        = 0
+PE 0: MPICH/RMA environment settings =================================
+PE 0:   MPICH_RMA_MAX_PENDING                          = 64
+PE 0:   MPICH_RMA_SHM_ACCUMULATE                       = 0
+PE 0: MPICH/SMP environment settings =================================
+PE 0:   MPICH_SMP_SINGLE_COPY_MODE                     = CMA
+PE 0:   MPICH_SMP_SINGLE_COPY_SIZE                     = 8192
+PE 0:   MPICH_SHM_PROGRESS_MAX_BATCH_SIZE              = 8
+PE 0: MPICH/OFI environment settings =================================
+PE 0:   MPICH_OFI_USE_PROVIDER                         = verbs;ofi_rxm
+PE 0:   MPICH_OFI_VERBOSE                              = 0
+PE 0:   MPICH_OFI_NIC_VERBOSE                          = 0
+PE 0:   FI_OFI_RXM_BUFFER_SIZE                         = 16384
+PE 0:   FI_OFI_RXM_SAR_LIMIT                           = 262144
+PE 0:   FI_OFI_RXM_RX_SIZE                             = 4096
+PE 0:   FI_OFI_RXM_USE_SRX                             = 0
+PE 0:   FI_VERBS_PREFER_XRC                            = 0
+PE 0:   FI_VERBS_MIN_RNR_TIMER                         = 6
+PE 0:   MPICH_OFI_XRCD_BASE_DIR                        = /tmp
+PE 0:   MPICH_OFI_NIC_POLICY                           = BLOCK
+PE 0:   MPICH_OFI_NIC_MAPPING                          = NULL
+PE 0:   MPICH_OFI_NUM_NICS                             = NULL
+PE 0:   MPICH_CH4_OFI_ENABLE_CONTROL_AUTO_PROGRESS     = -1
+PE 0:   MPICH_CH4_OFI_ENABLE_DATA_AUTO_PROGRESS        = -1
+PE 0:   MPICH_OFI_RMA_STARTUP_CONNECT                  = 0
+PE 0:   MPICH_OFI_SKIP_NIC_SELECTION                   = 0
+PE 0:   MPICH_OFI_SKIP_NIC_SYMMETRY_TEST               = 0
+PE 0:   MPICH_OFI_STARTUP_CONNECT                      = 0
+PE 0: MPICH/COLLECTIVE environment settings ==========================
+PE 0:   MPICH_COLL_OPT_OFF                             = 0
+PE 0:   MPICH_BCAST_ONLY_TREE                          = 1
+PE 0:   MPICH_BCAST_INTERNODE_RADIX                    = 4
+PE 0:   MPICH_BCAST_INTRANODE_RADIX                    = 4
+PE 0:   MPICH_ALLTOALL_SHORT_MSG                       = 64-512
+PE 0:   MPICH_ALLTOALL_SYNC_FREQ                       = 1-24
+PE 0:   MPICH_ALLTOALLV_THROTTLE                       = 8
+PE 0:   MPICH_ALLGATHER_VSHORT_MSG                     = 1024-4096
+PE 0:   MPICH_ALLGATHERV_VSHORT_MSG                    = 1024-4096
+PE 0:   MPICH_GATHERV_SHORT_MSG                        = 131072
+PE 0:   MPICH_GATHERV_MIN_COMM_SIZE                    = 64
+PE 0:   MPICH_GATHERV_MAX_TMP_SIZE                     = 536870912
+PE 0:   MPICH_GATHERV_SYNC_FREQ                        = 16
+PE 0:   MPICH_IGATHERV_RAND_COMMSIZE                   = 2048
+PE 0:   MPICH_IGATHERV_RAND_RECVLIST                   = 0
+PE 0:   MPICH_SCATTERV_SHORT_MSG                       = 2048-8192
+PE 0:   MPICH_SCATTERV_MIN_COMM_SIZE                   = 64
+PE 0:   MPICH_SCATTERV_MAX_TMP_SIZE                    = 536870912
+PE 0:   MPICH_SCATTERV_SYNC_FREQ                       = 16
+PE 0:   MPICH_SCATTERV_SYNCHRONOUS                     = 0
+PE 0:   MPICH_ALLREDUCE_MAX_SMP_SIZE                   = 262144
+PE 0:   MPICH_ALLREDUCE_BLK_SIZE                       = 716800
+PE 0:   MPICH_ALLREDUCE_NO_SMP                         = 0
+PE 0:   MPICH_REDUCE_NO_SMP                            = 0
+PE 0:   MPICH_REDUCE_SCATTER_COMMUTATIVE_LONG_MSG_SIZE = 524288
+PE 0:   MPICH_REDUCE_SCATTER_MAX_COMMSIZE              = 1000
+PE 0:   MPICH_SHARED_MEM_COLL_OPT                      = 1
+PE 0:   MPICH_SHARED_MEM_COLL_NCELLS                   = 8
+PE 0:   MPICH_SHARED_MEM_COLL_CELLSZ                   = 256
+PE 0: MPICH MPIIO environment settings ===============================
+PE 0:   MPICH_MPIIO_HINTS_DISPLAY                      = 0
+PE 0:   MPICH_MPIIO_HINTS                              = NULL
+PE 0:   MPICH_MPIIO_ABORT_ON_RW_ERROR                  = disable
+PE 0:   MPICH_MPIIO_CB_ALIGN                           = 2
+PE 0:   MPICH_MPIIO_DVS_MAXNODES                       = -1
+PE 0:   MPICH_MPIIO_AGGREGATOR_PLACEMENT_DISPLAY       = 0
+PE 0:   MPICH_MPIIO_AGGREGATOR_PLACEMENT_STRIDE        = -1
+PE 0:   MPICH_MPIIO_MAX_NUM_IRECV                      = 50
+PE 0:   MPICH_MPIIO_MAX_NUM_ISEND                      = 50
+PE 0:   MPICH_MPIIO_MAX_SIZE_ISEND                     = 10485760
+PE 0:   MPICH_MPIIO_OFI_STARTUP_CONNECT                = disable
+PE 0:   MPICH_MPIIO_OFI_STARTUP_NODES_AGGREGATOR        = 2
+PE 0: MPICH MPIIO statistics environment settings ====================
+PE 0:   MPICH_MPIIO_STATS                              = 0
+PE 0:   MPICH_MPIIO_TIMERS                             = 0
+PE 0:   MPICH_MPIIO_WRITE_EXIT_BARRIER                 = 1
+PE 0: MPICH Thread Safety settings ===================================
+PE 0:   MPICH_ASYNC_PROGRESS                           = 0
+PE 0:   MPICH_OPT_THREAD_SYNC                          = 1
+PE 0:   rank 0 required = single, was provided = single
+NOTE from PE     0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+ &MPP_IO_NML
+ HEADER_BUFFER_VAL       =       16384,
+ GLOBAL_FIELD_ON_ROOT_PE = T,
+ IO_CLOCKS_ON    = F,
+ SHUFFLE =           0,
+ DEFLATE_LEVEL   =          -1,
+ CF_COMPLIANCE   = F
+ /
+NOTE from PE     0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+NOTE from PE     0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   710000.
+NOTE from PE     0: ======== Model being driven by MOM_driver ========
+NOTE from PE     0: callTree: o Program MOM_main, MOM_driver.F90
+ &OCEAN_SOLO_NML
+ DATE_INIT       = 3*1, 3*0,
+ CALENDAR        = julian          ,
+ MONTHS  =           0,
+ DAYS    =          20,
+ HOURS   =           0,
+ MINUTES =           0,
+ SECONDS =           0,
+ OCEAN_NTHREADS  =           1,
+ USE_HYPER_THREAD        = F
+ /
+NOTE from PE     0: open_param_file: MOM_input has been opened successfully.
+NOTE from PE     0: open_param_file: MOM_override has been opened successfully.
+ MOM_in domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =    5
+  Y-AXIS =   14  14  14  14  14  14  14  14  14  14
+ MOM_inc domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =    2
+  Y-AXIS =    7   7   7   7   7   7   7   7   7   7
+NOTE from PE     0: diag_manager_mod::diag_manager_init: prepend_date only supported when diag_manager_init is called with time_init present.
+ MOM_in domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =    5
+  Y-AXIS =   14  14  14  14  14  14  14  14  14  14
+ MOM_in domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =    2
+  Y-AXIS =    7   7   7   7   7   7   7   7   7   7
+ MOM_in domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =    5
+  Y-AXIS =   14  14  14  14  14  14  14  14  14  14
+ MOM_in domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =    2
+  Y-AXIS =    7   7   7   7   7   7   7   7   7   7
+ MOM_in domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =    5
+  Y-AXIS =   14  14  14  14  14  14  14  14  14  14
+ MOM_in domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =    2
+  Y-AXIS =    7   7   7   7   7   7   7   7   7   7
+
+            === COMPLETED MOM STOCHASTIC INITIALIZATION =====
+
+NOTE from PE     0: Segment run length determined from ocean_solo_nml.
+
+WARNING from PE     0: Unused line in MOM_input : LIGHTEST_DENSITY = 1030.0
+
+
+WARNING from PE     0: Unused line in MOM_input : LIGHTEST_DENSITY = 1030.0
+
+
+WARNING from PE     0: Unused line in MOM_override : BBL_THICK_MAX = 10.0
+
+
+WARNING from PE     0: Unused line in MOM_override : KH_ETA_VEL_SCALE = 0.01
+
+
+WARNING from PE     0: Unused line in MOM_override : BBL_THICK_MAX = 10.0
+
+
+WARNING from PE     0: Unused line in MOM_override : KH_ETA_VEL_SCALE = 0.01
+
+MOM Date      1/01/01 00:00:00      0: En 3.143732E-01, MaxCFL  0.00000, Mass 1.084590436500E+18
+    Total Energy: 4392ED6B958A946A  3.4096613804560243E+17
+    Total Mass:   1.0845904364999913E+18, Change:   0.0000000000000000E+00 Error:  0.00000E+00 ( 0.0E+00)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/02 00:00:00    864: En 2.213273E-01, MaxCFL  0.06646, Mass 1.084590436500E+18
+    Total Energy: 438AA69DE3B19D2B  2.4004948654788746E+17
+    Total Mass:   1.0845904365001935E+18, Change:   2.0250595504029619E+05 Error:  2.02506E+05 ( 1.9E-13)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/03 00:00:00   1728: En 1.188694E-01, MaxCFL  0.03890, Mass 1.084590436500E+18
+    Total Energy: 437CA083A9C87FF0  1.2892458716076416E+17
+    Total Mass:   1.0845904365004003E+18, Change:   2.0654662692608082E+05 Error:  2.06547E+05 ( 1.9E-13)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/04 00:00:00   2592: En 9.719471E-02, MaxCFL  0.03751, Mass 1.084590436501E+18
+    Total Energy: 4377683B35CE30E4  1.0541644767055418E+17
+    Total Mass:   1.0845904365005452E+18, Change:   1.4498266027248616E+05 Error:  1.44983E+05 ( 1.3E-13)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/05 00:00:00   3456: En 8.206447E-02, MaxCFL  0.03115, Mass 1.084590436501E+18
+    Total Energy: 4373C36CBF6FFA87  8.9006342290778224E+16
+    Total Mass:   1.0845904365006099E+18, Change:   6.4533171729820795E+04 Error:  6.45332E+04 ( 6.0E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/06 00:00:00   4320: En 6.667545E-02, MaxCFL  0.02619, Mass 1.084590436501E+18
+    Total Energy: 43700EA9D5B876A9  7.2315555604294288E+16
+    Total Mass:   1.0845904365006971E+18, Change:   8.7692119293816228E+04 Error:  8.76921E+04 ( 8.1E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/07 00:00:00   5184: En 4.620763E-02, MaxCFL  0.02770, Mass 1.084590436501E+18
+    Total Energy: 43664191DE24608A  5.0116353924990032E+16
+    Total Mass:   1.0845904365008037E+18, Change:   1.0650193821899618E+05 Error:  1.06502E+05 ( 9.8E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/08 00:00:00   6048: En 3.827537E-02, MaxCFL  0.02003, Mass 1.084590436501E+18
+    Total Energy: 43626F7E1B10FE46  4.1513095931621936E+16
+    Total Mass:   1.0845904365008993E+18, Change:   9.5581609625673504E+04 Error:  9.55816E+04 ( 8.8E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/09 00:00:00   6912: En 3.454549E-02, MaxCFL  0.01905, Mass 1.084590436501E+18
+    Total Energy: 4360A395D061542F  3.7467707750916472E+16
+    Total Mass:   1.0845904365009933E+18, Change:   9.4012514732084586E+04 Error:  9.40125E+04 ( 8.7E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/10 00:00:00   7776: En 3.110371E-02, MaxCFL  0.01620, Mass 1.084590436501E+18
+    Total Energy: 435DF66722E0BE75  3.3734788607310292E+16
+    Total Mass:   1.0845904365010826E+18, Change:   8.9047255450106939E+04 Error:  8.90473E+04 ( 8.2E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/11 00:00:00   8640: En 2.761786E-02, MaxCFL  0.01587, Mass 1.084590436501E+18
+    Total Energy: 435A9AC409039233  2.9954064599894220E+16
+    Total Mass:   1.0845904365011771E+18, Change:   9.4717621008021961E+04 Error:  9.47176E+04 ( 8.7E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/12 00:00:00   9504: En 2.561106E-02, MaxCFL  0.01582, Mass 1.084590436501E+18
+    Total Energy: 4358ABDFB5CDB23E  2.7777507029076216E+16
+    Total Mass:   1.0845904365012493E+18, Change:   7.1968382653710694E+04 Error:  7.19684E+04 ( 6.6E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/13 00:00:00  10368: En 2.409937E-02, MaxCFL  0.01582, Mass 1.084590436501E+18
+    Total Energy: 43573714B9EF43DB  2.6137946490736492E+16
+    Total Mass:   1.0845904365013139E+18, Change:   6.4687207294408538E+04 Error:  6.46872E+04 ( 6.0E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/14 00:00:00  11232: En 2.269254E-02, MaxCFL  0.01521, Mass 1.084590436501E+18
+    Total Energy: 4355DC255A11C533  2.4612109975753932E+16
+    Total Mass:   1.0845904365013731E+18, Change:   5.8965902410481154E+04 Error:  5.89659E+04 ( 5.4E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/15 00:00:00  12096: En 2.143884E-02, MaxCFL  0.01590, Mass 1.084590436501E+18
+    Total Energy: 4354A6F95A01AF83  2.3252357685362188E+16
+    Total Mass:   1.0845904365014543E+18, Change:   8.1916190649321070E+04 Error:  8.19162E+04 ( 7.6E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/16 00:00:00  12960: En 1.999916E-02, MaxCFL  0.01394, Mass 1.084590436502E+18
+    Total Energy: 435343F056837D5F  2.1690896320689532E+16
+    Total Mass:   1.0845904365015237E+18, Change:   6.8941455587759236E+04 Error:  6.89415E+04 ( 6.4E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/17 00:00:00  13824: En 1.891420E-02, MaxCFL  0.01391, Mass 1.084590436502E+18
+    Total Energy: 4352386182B5AAE7  2.0514164146875292E+16
+    Total Mass:   1.0845904365015932E+18, Change:   6.9328955860789443E+04 Error:  6.93290E+04 ( 6.4E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/18 00:00:00  14688: En 1.816923E-02, MaxCFL  0.01057, Mass 1.084590436502E+18
+    Total Energy: 435180AA8CD6D3CE  1.9706178399063864E+16
+    Total Mass:   1.0845904365016604E+18, Change:   6.7236535948277102E+04 Error:  6.72365E+04 ( 6.2E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/19 00:00:00  15552: En 1.733381E-02, MaxCFL  0.01252, Mass 1.084590436502E+18
+    Total Energy: 4350B2A4E2C64F19  1.8800083505593444E+16
+    Total Mass:   1.0845904365017125E+18, Change:   5.2124103818991214E+04 Error:  5.21241E+04 ( 4.8E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/20 00:00:00  16416: En 1.672724E-02, MaxCFL  0.01090, Mass 1.084590436502E+18
+    Total Energy: 43501D0F84147972  1.8142208420079048E+16
+    Total Mass:   1.0845904365017649E+18, Change:   5.2218880378995498E+04 Error:  5.22189E+04 ( 4.8E-14)
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/temp) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/salt) NOT registered
+
+
+WARNING from PE     0: diag_util_mod::opening_file: module/field_name (ocean_model/tr_D1) NOT registered
+
+MOM Date      1/01/21 00:00:00  17280: En 1.594405E-02, MaxCFL  0.01205, Mass 1.084590436502E+18
+    Total Energy: 434EB7D64981F2E9  1.7292760570914258E+16
+    Total Mass:   1.0845904365018147E+18, Change:   4.9944988253556461E+04 Error:  4.99450E+04 ( 4.6E-14)
+
+WARNING from PE     0: diag_manager_mod::closing_file: module/output_field ocean_model/rho, skip one time level, maybe send_data never called
+
+
+WARNING from PE     0: diag_manager_mod::closing_file: module/output_field ocean_model/rho, skip one time level, maybe send_data never called
+
+                              20220518 142433.702: Memuse(MB) at Memory HiWaterMark=  8.859E+01  9.356E+01  1.295E+00  9.010E+01
+ MPP_DOMAINS_STACK high water mark=        5400
+
+Tabulating mpp_clock statistics across     10 PEs...
+
+                                          tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+Total runtime                        51.383553     51.383555     51.383554      0.000001  1.000     0     0     9
+Initialization                        0.242425      0.242987      0.242564      0.000172  0.005     0     0     9
+Main loop                            51.090575     51.113358     51.092857      0.006834  0.994     0     0     9
+Termination                           0.017363      0.041629      0.039199      0.007278  0.001     0     0     9
+ MPP_STACK high water mark=           0
+0.069u 0.029s 0:54.75 0.1%	0+0k 28482+64io 126pf+0w
